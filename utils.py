@@ -57,7 +57,7 @@ def calcular_dmeda(conjunto):
     return calcular_mediana(novo_conjunto)
 
 
-def calcula_percentil(conjunto, p):
+def calcular_percentil(conjunto, p):
     """
     Implementação do cálculo de percentil
     também pode ser usado para cálculo de quartil (0.25, 0.5 e 0.75)
@@ -82,3 +82,12 @@ def calcula_percentil(conjunto, p):
 
     k = int(k)
     return (conjunto_ordenado[k] + conjunto_ordenado[k + 1]) / 2.
+
+
+def calcular_intervalo(conjunto):
+    conjunto_ordenado = sorted(conjunto)
+    return conjunto_ordenado[-1] - conjunto_ordenado[0]
+
+
+def calcular_intervalo_interquartil(conjunto):
+    return calcular_percentil(conjunto, p=0.75) - calcular_percentil(conjunto, p=0.25)
