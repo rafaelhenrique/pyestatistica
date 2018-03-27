@@ -134,3 +134,10 @@ def calcular_covariancia(conjunto_A, conjunto_B):
         novo_conjunto.append(novo_elemento)
 
     return sum(novo_conjunto) / (len(novo_conjunto) - 1)
+
+
+def calcular_correlacao(conjunto_A, conjunto_B):
+    covariancia = calcular_covariancia(conjunto_A, conjunto_B)
+    desvpad_A = calcular_desvpad(conjunto_A)
+    desvpad_B = calcular_desvpad(conjunto_B)
+    return covariancia / (desvpad_A * desvpad_B)
