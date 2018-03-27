@@ -104,3 +104,18 @@ def calcular_normalizacao_reescala(conjunto, minimo=0, maximo=1, amostra=None):
         return novo_conjunto[amostra - 1]
 
     return novo_conjunto
+
+
+def calcular_normalizacao_padronizacao(conjunto, minimo=0, maximo=1, amostra=None):
+    media = calcular_media(conjunto)
+    desvpad = calcular_desvpad(conjunto)
+
+    novo_conjunto = []
+    for elemento in conjunto:
+        novo_elemento = (elemento - media) / desvpad
+        novo_conjunto.append(novo_elemento)
+
+    if amostra:
+        return novo_conjunto[amostra - 1]
+
+    return novo_conjunto
