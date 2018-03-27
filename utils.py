@@ -22,9 +22,6 @@ def calcular_variancia_amostral(conjunto):
     media = calcular_media(conjunto)
     novo_conjunto = [elemento - media for elemento in conjunto]
 
-    if sum(novo_conjunto) != 0:
-        raise Exception("Erro de cálculo")
-
     conjunto_quadrados = [elemento ** 2 for elemento in novo_conjunto]
     return sum(conjunto_quadrados) / (len(conjunto_quadrados) - 1)
 
