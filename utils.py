@@ -88,3 +88,19 @@ def calcular_intervalo(conjunto):
 
 def calcular_intervalo_interquartil(conjunto):
     return calcular_percentil(conjunto, p=0.75) - calcular_percentil(conjunto, p=0.25)
+
+
+def calcular_normalizacao_reescala(conjunto, minimo=0, maximo=1, amostra=None):
+    conjunto_ordenado = sorted(conjunto)
+    menor = conjunto_ordenado[0]
+    maior = conjunto_ordenado[-1]
+
+    novo_conjunto = []
+    for elemento in conjunto:
+        novo_elemento = minimo + ((elemento - menor) / (maior - menor)) * (maximo - minimo)
+        novo_conjunto.append(novo_elemento)
+
+    if amostra:
+        return novo_conjunto[amostra - 1]
+
+    return novo_conjunto
