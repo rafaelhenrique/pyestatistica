@@ -119,3 +119,18 @@ def calcular_normalizacao_padronizacao(conjunto, minimo=0, maximo=1, amostra=Non
         return novo_conjunto[amostra - 1]
 
     return novo_conjunto
+
+
+def calcular_covariancia(conjunto_A, conjunto_B):
+    media_A = calcular_media(conjunto_A)
+    novo_conjunto_A = [elemento - media_A for elemento in conjunto_A]
+
+    media_B = calcular_media(conjunto_B)
+    novo_conjunto_B = [elemento - media_B for elemento in conjunto_B]
+
+    novo_conjunto = []
+    for elemento_A, elemento_B in zip(novo_conjunto_A, novo_conjunto_B):
+        novo_elemento = elemento_A * elemento_B
+        novo_conjunto.append(novo_elemento)
+
+    return sum(novo_conjunto) / (len(novo_conjunto) - 1)
